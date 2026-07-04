@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="poloniumlauncher">
+	<schema id="org.gnome.PoloniumLauncher" path="/org/gnome/PoloniumLauncher/">
+	</schema>
+</schemalist>

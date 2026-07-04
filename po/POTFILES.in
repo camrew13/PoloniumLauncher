@@ -1,0 +1,8 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/org.gnome.PoloniumLauncher.desktop.in
+data/org.gnome.PoloniumLauncher.metainfo.xml.in
+data/org.gnome.PoloniumLauncher.gschema.xml
+src/main.py
+src/window.py
+src/window.ui

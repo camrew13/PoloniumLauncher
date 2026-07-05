@@ -53,10 +53,10 @@ class PoloniumlauncherApplication(Adw.Application):
 
     def on_about_action(self, *args):
         """Callback for the app.about action."""
-        about = Adw.AboutDialog(application_name='PoloniumLauncher',
+        about = Adw.AboutDialog(application_name='Polonium Launcher',
                                 application_icon='org.gnome.PoloniumLauncher',
                                 developer_name='Camrew',
-                                version='0.1.0',
+                                version='a0.2.0',
                                 # Translators: Replace "translator-credits" with your name/username, and optionally an email or URL.
                                 translator_credits = _('translator-credits'),
                                 developers=['Camrew'],

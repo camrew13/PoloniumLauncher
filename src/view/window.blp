@@ -1,0 +1,95 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $PoloniumlauncherWindow : Adw.ApplicationWindow {
+  title: _("Polonium Launcher");
+  default-width: 850;
+  default-height: 600;
+
+  Adw.Breakpoint {
+    condition ("max-width: 400sp")
+
+    setters {
+      split_view.collapsed: true;
+      launch.visible: true;
+    }
+  }
+
+  content: Adw.NavigationSplitView split_view {
+    sidebar: Adw.NavigationPage {
+      title: _("Launch Minecraft"); // Element od nazwy u góry w lewym navibarze
+      tag: "instance_settings";
+
+      child: Adw.ToolbarView {
+        [top]
+        Adw.HeaderBar {
+          show-title: true;
+        }
+        content: Adw.StatusPage {
+          title: _("{Insert Instance name here}");
+          // Element od nazwy instancji mc, do dodania:
+          // Zmienna nazwa, ikona
+
+          Button launch {
+            //visible: true;
+            halign: center;
+            can-shrink: true;
+            label: _("Launch");
+            action-name: "navigation.push";
+            action-target: "'jvm-launch'";
+            //Button od ładowania jvm mc, do dodania guziki od folderów i ustawień
+
+
+            styles [
+              "pill",
+            ]
+          }
+        };
+      };
+    };
+
+  content: Adw.NavigationPage {
+      title: _("Polonium Launcher");
+      tag: "welcome";
+
+      child: Adw.ToolbarView {
+        [top]
+        Adw.HeaderBar {
+          [end]
+          Gtk.MenuButton {
+            primary: true;
+            icon-name: "open-menu-symbolic";
+            tooltip-text: _("Main Menu");
+            menu-model: primary_menu;
+          }
+        }
+
+        content: Adw.StatusPage {
+          title: _("Welcome to Polonium,\nThe go-to Minecraft launcher for Gnome!");
+
+          LinkButton {
+            label: _("Minecraft Website");
+            uri: "https://www.minecraft.net/en-us/";
+          }
+        };
+      };
+    };
+  };
+}
+
+menu primary_menu {
+  section {
+    item {
+      label: _("_Settings");
+      action: "app.preferences";
+    }
+    item {
+      label: _("_Keyboard Shortcuts");
+      action: "app.shortcuts";
+    }
+    item {
+      label: _("_About Polonium Launcher");
+      action: "app.about";
+    }
+  }
+}

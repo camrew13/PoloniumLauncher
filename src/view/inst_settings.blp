@@ -1,0 +1,57 @@
+using Gtk 4.0;
+using Adw 1;
+
+template $SettingsWindow : Adw.Window {
+  default-width: 600;
+  default-height: 400;
+  modal: true;
+  hide-on-close: true;
+
+  content: Box {
+    orientation: vertical;
+
+    Adw.HeaderBar {
+      [title]
+      Adw.ViewSwitcher {
+        stack: inst_stack;
+        policy: wide;
+      }
+    }
+
+    Adw.ViewStack inst_stack {
+      vexpand: true;
+
+      Adw.ViewStackPage {
+        name: "XxX"; //temp
+        title: _("XxX"); //temp
+        icon-name: "puzzle-piece-symbolic"; //temp
+
+        child: Box{
+          orientation: vertical;
+          halign: center;
+          valign: center;
+
+          Label {
+            label: _("Mods go here"); //temp
+          }
+        };
+      }
+      Adw.ViewStackPage {
+        name: "xXx"; //temp
+        title: _("xXx"); //temp
+        icon-name: "camera-photo-symbolic"; //temp
+
+        child: Box{
+          orientation: vertical;
+          halign: center;
+          valign: center;
+
+          Label {
+            label: _("Shaders go here"); //temp
+
+          }
+        };
+      }
+    }
+  };
+} 

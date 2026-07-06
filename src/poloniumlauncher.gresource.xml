@@ -3,5 +3,6 @@
   <gresource prefix="/org/gnome/PoloniumLauncher">
     <file preprocess="xml-stripblanks">window.ui</file>
     <file preprocess="xml-stripblanks">shortcuts-dialog.ui</file>
+    <file preprocess="xml-stripblanks">inst_settings.ui</file>
   </gresource>
 </gresources>

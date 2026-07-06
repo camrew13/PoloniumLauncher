@@ -7,7 +7,7 @@ template $PoloniumlauncherWindow : Adw.ApplicationWindow {
   default-height: 600;
 
   Adw.Breakpoint {
-    condition ("max-width: 400sp")
+    condition ("max-width: 600sp")
 
     setters {
       split_view.collapsed: true;
@@ -16,41 +16,60 @@ template $PoloniumlauncherWindow : Adw.ApplicationWindow {
   }
 
   content: Adw.NavigationSplitView split_view {
+    min-sidebar-width: 240;
     sidebar: Adw.NavigationPage {
       title: _("Launch Minecraft"); // Element od nazwy u góry w lewym navibarze
-      tag: "instance_settings";
+      tag: "leftnaviname";
 
       child: Adw.ToolbarView {
         [top]
         Adw.HeaderBar {
           show-title: true;
         }
+
         content: Adw.StatusPage {
           title: _("{Insert Instance name here}");
           // Element od nazwy instancji mc, do dodania:
           // Zmienna nazwa, ikona
+        };
+
+        [bottom]
+        Gtk.Box {
+          halign: center;
+          margin-bottom: 24;
+          margin-top: 12;
+          spacing: 6;
 
           Button launch {
             //visible: true;
             halign: center;
             can-shrink: true;
             label: _("Launch");
-            action-name: "navigation.push";
-            action-target: "'jvm-launch'";
             //Button od ładowania jvm mc, do dodania guziki od folderów i ustawień
 
+            styles [
+              "pill",
+              "suggested-action",
+            ]
+          }
+          Button settings {
+            //visible: true;
+            halign: center;
+            can-shrink: true;
+            icon-name: "emblem-system-symbolic";
+            //Button od ładowania ustawień instancji
 
             styles [
               "pill",
             ]
           }
-        };
+        }
       };
     };
 
-  content: Adw.NavigationPage {
+    content: Adw.NavigationPage {
       title: _("Polonium Launcher");
-      tag: "welcome";
+      tag: "rightnaviname";
 
       child: Adw.ToolbarView {
         [top]

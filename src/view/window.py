@@ -28,3 +28,10 @@ class PoloniumlauncherWindow(Adw.ApplicationWindow):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+
+@Gtk.Template(resource_path='/org/gnome/PoloniumLauncher/inst_settings.ui')
+class SettingsWindow(Adw.Window):
+    __gtype_name__ = 'SettingsWindow'
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)

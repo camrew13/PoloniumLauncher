@@ -7,7 +7,8 @@ blueprint_compiler = find_program('blueprint-compiler')
 
 # The blueprint files to be converted
 blueprint_files = files(
-    'view/window.blp'
+    'view/window.blp',
+    'view/inst_settings.blp'
 )
 
 # The list of the converted .ui files to inject into the build
